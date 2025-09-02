@@ -29,12 +29,14 @@
 //console.log(result);
 
 //showing data on clicking button
-const btnLoad = document.querySelector(".btn-load");
-btnLoad.addEventListener("click", function () {
-  fetch("https://jsonplaceholder.typicode.com/todos/1")
-    .then((response) => response.json().then((data) => console.log(data)))
-    .catch((error) => console.log("My Error", error));
-});
+const btnLoad = document.querySelector('.btn-load');
+const loadData = function () {
+  fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //promise of response-->promise of json data
+    .then(response => response.json().then(data => console.log(data)))
+    .catch(error => console.log('My Error', error)); //cube gula method ar brick gula property
+};
+btnLoad.addEventListener('click', loadData);
 // const btnLoad = document.querySelector(".btn-load");
 // btnLoad.addEventListener("click", function () {
 //   fetch("https://this-url-does-not-exist.com/data")
@@ -42,3 +44,25 @@ btnLoad.addEventListener("click", function () {
 //     .catch((error) => console.log("My Error", error));
 // });
 //fetch error catch korte hole then er byre dite hbe
+
+//showing post on clicking button
+const btnPost = document.querySelector('.btn-post');
+const postData = function () {
+  const url = 'https://jsonplaceholder.typicode.com/posts';
+
+  fetch(url).then(response =>
+    response.json().then(data => {
+      console.log(data);
+      displayPost(data);
+    })
+  );
+};
+
+btnPost.addEventListener('click', postData);
+
+//showing data on ui
+const displayPost = posts => {
+  console.log(posts);
+  //to see each of the post
+  posts.forEach(post => console.log(post));
+};
