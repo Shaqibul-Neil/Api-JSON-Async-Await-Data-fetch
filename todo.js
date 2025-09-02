@@ -17,10 +17,13 @@ const displayToDo = function (todos) {
     const toDoCard = document.createElement('div');
 
     //todo completed logic
-    todo.completed = todo.completed ? '✅' : '❌';
+    todo.completed = todo.completed
+      ? `<i class="fa-solid fa-square-check" style="color: #63E6BE;"></i>`
+      : `<i class="fa-regular fa-square-check"></i>`;
 
     toDoCard.innerHTML = `
     <div class="todo-card">
+        <p>${todo.id}.</p>
         <p>${todo.completed}</p>
         <h4>${todo.title}</h4>
     </div>`;
