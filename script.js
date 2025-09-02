@@ -12,3 +12,9 @@ console.log(person);
 //convert to json--> json.stringify
 const personJSON = JSON.stringify(person);
 console.log(personJSON);
+console.log(typeof personJSON);
+
+//convert from json--> json.parse
+const JSONOPerson = JSON.parse(personJSON);
+console.log(JSONOPerson);
+console.log(typeof JSONOPerson);
