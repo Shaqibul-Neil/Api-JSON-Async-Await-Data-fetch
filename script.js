@@ -79,3 +79,20 @@ const displayPost = function (posts) {
 btnPost.addEventListener('click', postData);
 //without click call by default
 //postData();
+
+//async
+// fetch('https://jsonplaceholder.typicode.com/posts/1')
+//   .then(response => response.json())
+//   .then(json => console.log(json));
+// console.log('hello');
+// console.log(true);
+
+const newFunc = async () => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+  console.log(response);
+  console.log('hello');
+  const json = await response.json();
+  console.log(json);
+  console.log(true);
+};
+newFunc();

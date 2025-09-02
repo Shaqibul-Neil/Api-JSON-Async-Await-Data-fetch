@@ -1,22 +1,21 @@
 const toDoContainer = document.querySelector('#todo-container');
-const loadToDo = function () {
+const loadToDo = async function () {
   const url = 'https://jsonplaceholder.typicode.com/todos';
+  const response = await fetch(url);
+  const data = await response.json();
 
-  fetch(url).then(res =>
-    res.json().then(data => {
-      console.log(data);
-      displayToDo(data);
-    })
-  );
+  //console.log(data);
+  displayToDo(data);
 };
 
 const displayToDo = function (todos) {
   toDoContainer.innerHTML = '';
   todos.forEach(todo => {
-    console.log(todo);
+    //console.log(todo);
     const toDoCard = document.createElement('div');
 
     //todo completed logic
+    //conditional rendering
     todo.completed = todo.completed
       ? `<i class="fa-solid fa-square-check" style="color: #63E6BE;"></i>`
       : `<i class="fa-regular fa-square-check"></i>`;
@@ -32,9 +31,9 @@ const displayToDo = function (todos) {
 };
 
 loadToDo();
-const obj = {
-  userId: 2,
-  id: 31,
-  title: 'repudiandae totam in est sint facere fuga',
-  completed: false,
-};
+// const obj = {
+//   userId: 2,
+//   id: 31,
+//   title: 'repudiandae totam in est sint facere fuga',
+//   completed: false,
+// };
