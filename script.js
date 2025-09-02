@@ -47,25 +47,33 @@ btnLoad.addEventListener('click', loadData);
 
 //showing post on clicking button
 const btnPost = document.querySelector('.btn-post');
-const containerPost = document.querySelector('.container');
+const containerPost = document.querySelector('#post-container');
 const postData = function () {
   const url = 'https://jsonplaceholder.typicode.com/posts';
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      //console.log(data);
       displayPost(data);
     });
 };
 
 const displayPost = function (posts) {
+  //clearing container so that it doesnt exceed 100 on each click. if we dont do it then posts will 100,200....
+  containerPost.innerHTML = '';
   posts.forEach(post => {
     //create html element
-    const li = document.createElement('li');
-    li.innerText = post.title;
-    // console.log(post);
-    //add li to container
-    containerPost.appendChild(li);
+    const postCard = document.createElement('div');
+    postCard.classList.add('post-card');
+    //postCard.innerText = post.title;
+    console.log(post);
+    postCard.innerHTML = `
+        <h2 class="post-title">${post.title}</h2>
+        <p class="post-body">${post.body}</p>
+        <p class="post-user">${post.id}</p>
+    `;
+    //add div to container
+    containerPost.appendChild(postCard);
   });
 };
 btnPost.addEventListener('click', postData);

@@ -4,12 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Api, JSON, Async,Await, Data fetch</title>
+    <style>
+      #post-container {
+        max-width: 1160px;
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px 20px;
+      }
+      .post-card {
+        /* margin: 20px 0; */
+        height: auto;
+        border-radius: 10px;
+        padding: 15px 25px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        background: rgb(236, 248, 248);
+      }
+
+      .post-body {
+        margin: 20px 0;
+        text-align: justify;
+      }
+    </style>
   </head>
   <body>
     <h1>Api, JSON, Async,Await, Data fetch</h1>
     <button class="btn-load">Load Data</button>
     <button class="btn-post">Load Post</button>
-    <ul class="container"></ul>
+
+    <div id="post-container">
+      <!-- <div class="post-card">
+        <h2 class="post-title">Lorem, ipsum.</h2>
+        <p class="post-body">Body</p>
+        <p class="post-user"></p>
+      </div> -->
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
