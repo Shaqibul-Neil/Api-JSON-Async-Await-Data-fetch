@@ -77,3 +77,5 @@ const displayPost = function (posts) {
   });
 };
 btnPost.addEventListener('click', postData);
+//without click call by default
+//postData();
