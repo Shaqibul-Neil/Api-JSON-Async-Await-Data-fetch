@@ -31,7 +31,14 @@
 //showing data on clicking button
 const btnLoad = document.querySelector(".btn-load");
 btnLoad.addEventListener("click", function () {
-  fetch("https://jsonplaceholder.typicode.com/todos/1").then((response) =>
-    response.json().then((data) => console.log(data))
-  );
+  fetch("https://jsonplaceholder.typicode.com/todos/1")
+    .then((response) => response.json().then((data) => console.log(data)))
+    .catch((error) => console.log("My Error", error));
 });
+// const btnLoad = document.querySelector(".btn-load");
+// btnLoad.addEventListener("click", function () {
+//   fetch("https://this-url-does-not-exist.com/data")
+//     .then((response) => response.json().then((data) => console.log(data)))
+//     .catch((error) => console.log("My Error", error));
+// });
+//fetch error catch korte hole then er byre dite hbe
