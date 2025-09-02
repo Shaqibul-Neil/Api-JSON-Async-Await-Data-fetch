@@ -47,22 +47,25 @@ btnLoad.addEventListener('click', loadData);
 
 //showing post on clicking button
 const btnPost = document.querySelector('.btn-post');
+const containerPost = document.querySelector('.container');
 const postData = function () {
   const url = 'https://jsonplaceholder.typicode.com/posts';
-
-  fetch(url).then(response =>
-    response.json().then(data => {
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
       console.log(data);
       displayPost(data);
-    })
-  );
+    });
 };
 
+const displayPost = function (posts) {
+  posts.forEach(post => {
+    //create html element
+    const li = document.createElement('li');
+    li.innerText = post.title;
+    // console.log(post);
+    //add li to container
+    containerPost.appendChild(li);
+  });
+};
 btnPost.addEventListener('click', postData);
-
-//showing data on ui
-const displayPost = posts => {
-  console.log(posts);
-  //to see each of the post
-  posts.forEach(post => console.log(post));
-};
